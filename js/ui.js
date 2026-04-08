@@ -6,17 +6,17 @@ const ui = {
 
     try {
       const memos = await api.searchMemos()
-      memos.forEach(ui.addMemoToList)
+      memos.forEach(memo => ui.addMemoToList(memo))
     }
     catch {
       alert('Error rendering memos')
     }
   },
 
-  addMemoToList() {
+  addMemoToList(pensamento) {
     const memoList = document.getElementById('lista-pensamentos')
     const li = document.createElement("li")
-    li.setAttribute("data-id", memo.id)
+    li.setAttribute("data-id", pensamento.id)
     li.classList.add("li-pensamento")
 
     const iconMarks = document.createElement("img")
@@ -25,11 +25,11 @@ const ui = {
     iconMarks.classList.add("icone-aspas")
 
     const memoContent = document.createElement("div")
-    memoContent.textContent = memo.conteudo
+    memoContent.textContent = pensamento.conteudo
     memoContent.classList.add("pensamento-conteudo")
 
     const memoAuthor = document.createElement("div")
-    memoAuthor.textContent = memo.autoria
+    memoAuthor.textContent = pensamento.autoria
     memoAuthor.classList.add("pensamento-autoria")
 
     li.appendChild(iconMarks)

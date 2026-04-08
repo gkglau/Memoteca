@@ -17,9 +17,9 @@ const api = {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify()
+        body: JSON.stringify(memo)
       })
-      return await response.json(memo)
+      return await response.json()
     }
     catch {
       alert('error save memo')
