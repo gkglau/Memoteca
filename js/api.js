@@ -53,6 +53,17 @@ const api = {
       throw error
     }
   },
+    async deleteMemo(id) {
+     try {
+       await fetch(`http://localhost:3000/pensamentos/${id}`, {
+         method: "DELETE"
+       })
+     }
+     catch {
+       alert('error delete memo')
+       throw error
+     }
+   }
 }
 
 export default api;

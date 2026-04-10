@@ -15,6 +15,7 @@ const ui = {
 
   async renderMemos() {
     const memoList = document.getElementById('lista-pensamentos')
+    memoList.innerHTML = ""
 
     try {
       const memos = await api.searchMemos()
@@ -53,9 +54,26 @@ const ui = {
     editIcon.alt = "Edit"
     editButton.appendChild(editIcon)
 
+    const deleteButton = document.createElement("button")
+    deleteButton.classList.add("botao-excluir")
+    deleteButton.onclick = async () => {
+      try {
+        await api.deleteMemo(memo.id)
+        ui.renderMemos()
+      } catch (error) {
+        alert("error deleting memo")
+      }
+    }
+
+    const deleteIcon = document.createElement("img")
+    deleteIcon.src = "assets/imagens/icone-excluir.png"
+    deleteIcon.alt = "Delete"
+    deleteButton.appendChild(deleteIcon)
+
     const icons = document.createElement("div")
     icons.classList.add("icones")
     icons.appendChild(editButton)
+    icons.appendChild(deleteButton)
 
     li.appendChild(iconMarks)
     li.appendChild(memoContent)
