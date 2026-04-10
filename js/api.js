@@ -25,7 +25,34 @@ const api = {
       alert('error save memo')
       throw error
     }
-  }
+  },
+
+  async searchMemoById(id) {
+    try {
+      const response = await fetch(`http://localhost:3000/pensamentos/${id}`)
+      return await response.json()
+    }
+    catch {
+      alert('error searching memo')
+      throw error
+    }
+  },
+   async editMemo(memo) {
+    try {
+      const response = await fetch(`http://localhost:3000/pensamentos/${memo.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(memo)
+      })
+      return await response.json()
+    }
+    catch {
+      alert('error edit memo')
+      throw error
+    }
+  },
 }
 
 export default api;
