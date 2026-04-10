@@ -3,8 +3,8 @@ const URL_BASE = "http://localhost:3000"
 const api = {
   async searchMemos() {
     try {
-      const response = await fetch(`${URL_BASE}/pensamentos`)
-      return await response.json()
+      const response = await axios.get(`${URL_BASE}/pensamentos`)
+      return await response.data
     }
     catch {
       alert('error searching memos')
