@@ -15,11 +15,18 @@ const ui = {
 
   async renderMemos() {
     const memoList = document.getElementById('lista-pensamentos')
+     const emptyMessage = document.getElementById("mensagem-vazia");
     memoList.innerHTML = ""
 
     try {
       const memos = await api.searchMemos()
       memos.forEach(memo => ui.addMemoToList(memo))
+            if (memos.length === 0) {
+        emptyMessage.style.display = "block";
+      } else {
+        emptyMessage.style.display = "none";
+        memos.forEach(ui.addMemoToList)
+      }
     }
     catch {
       alert('Error rendering memos')
