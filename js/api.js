@@ -1,7 +1,9 @@
+const URL_BASE = "http://localhost:3000"
+
 const api = {
   async searchMemos() {
     try {
-      const response = await fetch('http://localhost:3000/pensamentos')
+      const response = await fetch(`${URL_BASE}/pensamentos`)
       return await response.json()
     }
     catch {
@@ -12,7 +14,7 @@ const api = {
 
     async saveMemos(memo) {
     try {
-      const response = await fetch('http://localhost:3000/pensamentos', {
+      const response = await fetch(`${URL_BASE}/pensamentos`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -29,7 +31,7 @@ const api = {
 
   async searchMemoById(id) {
     try {
-      const response = await fetch(`http://localhost:3000/pensamentos/${id}`)
+      const response = await fetch(`${URL_BASE}/pensamentos/${id}`)
       return await response.json()
     }
     catch {
@@ -39,7 +41,7 @@ const api = {
   },
    async editMemo(memo) {
     try {
-      const response = await fetch(`http://localhost:3000/pensamentos/${memo.id}`, {
+      const response = await fetch(`${URL_BASE}/pensamentos/${memo.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -55,7 +57,7 @@ const api = {
   },
     async deleteMemo(id) {
      try {
-       await fetch(`http://localhost:3000/pensamentos/${id}`, {
+       await fetch(`${URL_BASE}/pensamentos/${id}`, {
          method: "DELETE"
        })
      }
