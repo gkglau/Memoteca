@@ -1,6 +1,18 @@
 import api from "./api.js"
 
 const ui = {
+
+  async fillForm(memoId){
+    const memo = await api.searchMemoById(memoId)
+    document.getElementById("pensamento-id").value = memo.id
+    document.getElementById("pensamento-conteudo").value = memo.conteudo
+    document.getElementById("pensamento-autoria").value = memo.autoria
+  },
+
+  resetForm() {
+    document.getElementById("pensamento-form").reset();
+  },
+
   async renderMemos() {
     const memoList = document.getElementById('lista-pensamentos')
 
@@ -13,10 +25,10 @@ const ui = {
     }
   },
 
-  addMemoToList(pensamento) {
+  addMemoToList(memo) {
     const memoList = document.getElementById('lista-pensamentos')
     const li = document.createElement("li")
-    li.setAttribute("data-id", pensamento.id)
+    li.setAttribute("data-id", memo.id)
     li.classList.add("li-pensamento")
 
     const iconMarks = document.createElement("img")
@@ -25,16 +37,30 @@ const ui = {
     iconMarks.classList.add("icone-aspas")
 
     const memoContent = document.createElement("div")
-    memoContent.textContent = pensamento.conteudo
+    memoContent.textContent = memo.conteudo
     memoContent.classList.add("pensamento-conteudo")
 
     const memoAuthor = document.createElement("div")
-    memoAuthor.textContent = pensamento.autoria
+    memoAuthor.textContent = memo.autoria
     memoAuthor.classList.add("pensamento-autoria")
+
+    const editButton = document.createElement("button")
+    editButton.classList.add("botao-editar")
+    editButton.onclick = () => ui.fillForm(memo.id)
+
+    const editIcon = document.createElement("img")
+    editIcon.src = "assets/imagens/icone-editar.png"
+    editIcon.alt = "Edit"
+    editButton.appendChild(editIcon)
+
+    const icons = document.createElement("div")
+    icons.classList.add("icones")
+    icons.appendChild(editButton)
 
     li.appendChild(iconMarks)
     li.appendChild(memoContent)
     li.appendChild(memoAuthor)
+    li.appendChild(icons)
     memoList.appendChild(li)
   }
 }

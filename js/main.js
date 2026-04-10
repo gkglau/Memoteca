@@ -14,11 +14,14 @@ async function formSubmission(event) {
   const id = document.getElementById("pensamento-id").value
   const conteudo = document.getElementById("pensamento-conteudo").value
   const autoria = document.getElementById("pensamento-autoria").value
-  console.log(conteudo, autoria)
 
   try{
-    await api.saveMemos({ conteudo, autoria })
-    ui.renderMemos()
+    if(id){
+      await api.editMemo({ id, conteudo, autoria})
+    } else {
+      await api.saveMemos({ conteudo, autoria })
+      ui.renderMemos()
+    }
   }
   catch (error) {
     console.error(error)
