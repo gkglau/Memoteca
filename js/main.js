@@ -20,8 +20,9 @@ async function formSubmission(event) {
       await api.editMemo({ id, conteudo, autoria})
     } else {
       await api.saveMemos({ conteudo, autoria })
-      ui.renderMemos()
     }
+    ui.renderMemos()
+    ui.resetForm()
   }
   catch (error) {
     console.error(error)

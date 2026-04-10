@@ -20,7 +20,6 @@ const ui = {
 
     try {
       const memos = await api.searchMemos()
-      memos.forEach(memo => ui.addMemoToList(memo))
             if (memos.length === 0) {
         emptyMessage.style.display = "block";
       } else {
