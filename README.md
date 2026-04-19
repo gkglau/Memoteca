@@ -1,29 +1,27 @@
-
 # Memoteca
 
-Memoteca é um aplicativo organizador de pensamentos e frases que permite cadastrar, listar, editar e deletar pensamentos, incluindo informações como conteúdo e autoria.
+Memoteca is a thought and phrase organizer application that allows you to register, list, edit, and delete thoughts, including information such as content and authorship.
 
-## 🔨 Funcionalidades do projeto
+## 🔨 Project Features
 
-`Cadastro de pensamentos`: Permite adicionar novos pensamentos à lista, inserindo informações como conteúdo e autoria.
+`Registering Thoughts`: Allows you to add new thoughts to the list, inserting information such as content and authorship.
 
-`Listagem de pensamentos`: Exibe os pensamentos cadastrados, permitindo visualizar o texto e a autoria.
+`Listing Thoughts`: Displays registered thoughts, allowing you to view the text and authorship.
 
-`Edição de pensamentos`: Permite editar pensamentos existentes, atualizando as informações conforme necessário.
+`Editing Thoughts`: Allows you to edit existing thoughts, updating information as needed.
 
-`Exclusão de pensamentos`: Permite remover pensamentos da lista.
+`Deleting Thoughts`: Allows you to remove thoughts from the list.
 
-## ✔️ Técnicas e tecnologias utilizadas
+## ✔️ Techniques and Technologies Used
 
-`JavaScript`: Linguagem de programação utilizada para desenvolver a lógica do aplicativo.
+`JavaScript`: Programming language used to develop the application's logic.
 
-`Fetch API`: Utilizada para realizar requisições HTTP para comunicação com o servidor.
+`Fetch API`: Used to make HTTP requests for communication with the server.
 
-`Axios`: Biblioteca usada para facilitar e simplificar as requisições HTTP.
+`Axios`: Library used to facilitate and simplify HTTP requests.
 
-`Node.js`: Plataforma utilizada para executar o ambiente de desenvolvimento.
+`Node.js`: Platform used to run the development environment.
 
-`JSON Server`: Utilizado para simular um backend e facilitar o desenvolvimento e teste das operações CRUD.
+`JSON Server`: Used to simulate a backend and facilitate the development and testing of CRUD operations.
 
-`CSS`: Utilizado para estilização da interface do aplicativo.
-
+`CSS`: Used for styling the application's interface.
